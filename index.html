@@ -82,6 +82,85 @@ footer{background:#991d2c}
  .clinic-grid{grid-template-columns:1fr}
 }
 
+
+/* Layout fiel à primeira referência: hero compacto, seção de diferenciais e cartões horizontais */
+@media(min-width:901px){
+  header{height:62px}
+  header .container{width:min(1480px,calc(100% - 56px))}
+  .brand-mark{width:43px;height:43px}
+  .nav{gap:22px;font-size:11px}
+  .hero{min-height:390px;align-items:center;background:#fbf8f7}
+  .hero:before{
+    background:
+      linear-gradient(90deg,rgba(250,248,247,.99) 0%,rgba(250,248,247,.97) 31%,rgba(250,248,247,.70) 45%,rgba(250,248,247,.02) 69%),
+      var(--hero-image) right center/62% 100% no-repeat;
+  }
+  .hero-content{width:min(1480px,calc(100% - 56px));padding:36px 0}
+  h1{font-size:clamp(38px,3.6vw,52px);line-height:1.04;max-width:465px;letter-spacing:-1.8px;margin:14px 0 12px}
+  .hero p{font-size:13px;line-height:1.55;max-width:410px;margin-bottom:20px}
+  .search-panel{max-width:610px;padding:6px;border-radius:10px}
+  .search-field{padding:6px 9px}
+  .search-field label{font-size:9px}
+  .search-field input,.search-field select{font-size:11px}
+  .primary-btn{font-size:11px;padding:0 18px}
+  .hero-note{font-size:10px;margin-top:12px}
+  .quick-features{display:block;padding:34px 0 48px;background:#fff}
+  .quick-grid{grid-template-columns:repeat(5,1fr);gap:12px}
+  .quick-feature{border-radius:14px;padding:18px 10px;box-shadow:0 5px 18px rgba(60,30,35,.07);background:#fffafa}
+  .quick-feature i{font-size:23px}
+  .quick-feature strong{font-size:12px}
+  .quick-feature small{font-size:10px}
+  #especialidades{padding:42px 0 50px;background:#fff}
+  #especialidades .section-head{justify-content:center;text-align:center;margin-bottom:20px}
+  #especialidades .section-head .text-link{display:none}
+  #especialidades .specialty-grid{display:none}
+  #especialidades #moreSpecialties{display:none}
+  #estrutura{padding:20px 0 48px;background:#fbf8f7}
+  .about{grid-template-columns:.95fr 1.05fr;gap:32px;align-items:stretch}
+  .about-copy{padding:18px 0}
+  .about-copy h2{font-size:30px;margin:8px 0 10px}
+  .about-copy>p{font-size:12px;line-height:1.6}
+  .about-visual{min-height:300px}
+  .about-visual img{width:100%;height:300px;border-radius:12px}
+  .about-badge{right:12px;bottom:12px;padding:15px;width:155px}
+  .about-badge strong{font-size:22px}
+  .feature-grid{gap:12px;margin-top:18px}
+  .feature strong{font-size:11px}
+  .feature span{font-size:10px}
+  #clinicas{padding:46px 0 50px;background:#fff}
+  #clinicas .clinic-grid{grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
+  #clinicas .clinic-card:nth-child(n+6){display:none}
+  #clinicas .clinic-image{height:118px}
+  #clinicas .clinic-body{padding:12px}
+  #clinicas .clinic-body h3{font-size:12px;line-height:1.3;min-height:32px}
+  #clinicas .clinic-body p{font-size:10px;min-height:54px}
+  #clinicas .clinic-meta{font-size:8px}
+  #clinicas .clinic-footer{font-size:9px}
+  #salas{padding:40px 0;background:#fbf7f6}
+  .leasing{background:#fbf7f6;color:var(--ink)}
+  .leasing .container{max-width:1200px}
+  .leasing h2{font-size:28px}
+  .leasing p{color:var(--muted);font-size:12px}
+  .leasing .primary-btn{border-radius:999px}
+  .stats-grid{padding:20px 0}
+  .stat{text-align:center}
+  .stat strong{font-size:23px}
+  .location-highlight{padding:54px 0}
+  .faq{padding:60px 0}
+}
+@media(max-width:900px){
+  .hero{min-height:540px}
+  .hero:before{background:linear-gradient(180deg,rgba(250,248,247,.98) 0%,rgba(250,248,247,.88) 42%,rgba(250,248,247,.10) 100%),var(--hero-image) center bottom/auto 60% no-repeat}
+  .quick-features{display:block;padding:24px 0 32px}
+  #especialidades .specialty-grid{display:grid}
+}
+@media(max-width:650px){
+  .hero{min-height:590px}
+  .hero:before{background:linear-gradient(180deg,rgba(250,248,247,.98) 0%,rgba(250,248,247,.91) 43%,rgba(250,248,247,.08) 100%),var(--hero-image) center bottom/auto 56% no-repeat}
+  .quick-grid{grid-template-columns:repeat(2,1fr)}
+  .quick-feature:last-child{grid-column:1/-1}
+}
+
 </style>
 </head>
 <body>
