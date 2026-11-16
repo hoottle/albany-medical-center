@@ -8,7 +8,7 @@ Site institucional independente do Albany Medical Center, com identidade visual 
 - convenios.html: busca nos primeiros 40 itens da listagem pública de 126 convênios; a página também direciona à lista oficial completa para conferência.
 - 404.html: página personalizada para endereços não encontrados.
 - favicon.svg, robots.txt e sitemap.xml para identidade e indexação.
-- Logo e foto principal recuperadas das referências visuais aprovadas para o projeto e carregadas pelo navegador a partir dos arquivos Base64 em assets/.
+- Logo original enviado pelo usuário e foto de fundo recortada da referência aprovada do modelo 3; ambos são carregados pelo navegador a partir dos arquivos Base64 em assets/.
 
 ## Executar localmente
 Use um servidor estático local na raiz do projeto. As páginas carregam os arquivos de marca e imagem a partir de /assets/, portanto não devem ser abertas diretamente pelo protocolo file://.
