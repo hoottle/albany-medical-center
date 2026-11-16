@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#a51f35"><meta name="description" content="Consulte as 50 clínicas instaladas no Albany Medical Center, em Águas Claras, Brasília.">
+<title>Clínicas e serviços | Albany Medical Center</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--red:#a51f35;--ink:#20242b;--muted:#69717d;--line:#e9e9eb;--soft:#f7f5f3}
+*{box-sizing:border-box}body{margin:0;font-family:"DM Sans",sans-serif;color:var(--ink);background:#fff}a{color:inherit;text-decoration:none}.container{width:min(1160px,calc(100% - 40px));margin:auto}
+.top{background:#292d33;color:#eee;font-size:12px;padding:10px 0}.top .container{display:flex;justify-content:space-between;gap:20px}
+header{position:sticky;top:0;z-index:10;background:#fff;border-bottom:1px solid var(--line)}header .container{height:78px;display:flex;align-items:center;justify-content:space-between}.brand{display:flex;align-items:center;gap:10px}.brand img{width:45px;height:45px;object-fit:contain}.brand strong{font:800 18px Manrope;letter-spacing:-.5px}.brand small{display:block;font:700 9px "DM Sans";letter-spacing:2px;color:var(--red)}nav{display:flex;align-items:center;gap:24px;font-size:13px;font-weight:600}nav a:hover{color:var(--red)}.cta{background:var(--red);color:#fff;padding:12px 17px;border-radius:30px}
+.hero{background:linear-gradient(110deg,#faf7f5,#f5eeee);padding:62px 0 45px}.eyebrow{font-size:11px;color:var(--red);font-weight:700;letter-spacing:1.6px;text-transform:uppercase}.hero h1{font:800 clamp(34px,4vw,48px)/1.1 Manrope;letter-spacing:-1.8px;margin:14px 0}.hero p{color:var(--muted);font-size:15px;line-height:1.7;max-width:620px}.search{display:flex;gap:10px;max-width:780px;background:#fff;padding:9px;border-radius:14px;box-shadow:0 12px 35px #24283212;margin-top:25px}.search input{flex:1;min-width:0;border:0;outline:0;padding:10px 13px;font:14px "DM Sans"}.search button{border:0;border-radius:10px;background:var(--red);color:#fff;font-weight:700;padding:0 24px;cursor:pointer}
+.results{padding:38px 0 80px}.count{font-size:13px;color:var(--muted);margin:0 0 22px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.card{border:1px solid var(--line);border-radius:15px;padding:20px;background:#fff;transition:.2s}.card:hover{border-color:#d9aab1;box-shadow:0 12px 30px #20242b0d;transform:translateY(-2px)}.room{color:var(--red);font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase}.card h2{font:700 17px/1.3 Manrope;margin:9px 0}.card p{font-size:12px;color:var(--muted);line-height:1.65;margin:0}.card a{display:inline-block;color:var(--red);font-size:11px;font-weight:700;margin-top:15px}.empty{display:none;padding:45px 15px;text-align:center;color:var(--muted);border:1px dashed #ddd;border-radius:14px}
+footer{background:#22262c;color:#fff;padding:30px 0;font-size:12px}footer .container{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}footer span{color:#aeb3bb}
+@media(max-width:850px){.grid{grid-template-columns:repeat(2,1fr)}nav{gap:14px}}
+@media(max-width:600px){.top .container{display:block;text-align:center}.top .container span+span{display:none}header .container{height:68px}nav a:not(.cta){display:none}.hero{padding:48px 0 35px}.search{display:block}.search input{width:100%;padding:13px}.search button{height:46px;width:100%;margin-top:7px}.grid{grid-template-columns:1fr}.results{padding:28px 0 60px}}
+</style>
+</head>
+<body>
+<div class="top"><div class="container"><span>Rua 5 Norte, Lote 3 · Águas Claras, Brasília – DF</span><span>Seg–Sex 8h–21h · Sáb 8h–13h</span></div></div>
+<header><div class="container"><a class="brand" href="/"><img src="/assets/albany-logo.svg" alt="Albany Medical Center"><span><strong>ALBANY</strong><small>MEDICAL CENTER</small></span></a><nav><a href="/">Início</a><a href="/#especialidades">Especialidades</a><a href="/#estrutura">O Albany</a><a class="cta" href="/#contato">Fale com a administração</a></nav></div></header>
+<section class="hero"><div class="container"><span class="eyebrow">Encontre sua clínica</span><h1>Clínicas e serviços médicos</h1><p>Consulte as clínicas instaladas no Albany Medical Center. Pesquise pelo nome, especialidade ou localização da sala e entre em contato diretamente com cada equipe.</p><div class="search"><input id="q" type="search" placeholder="Ex.: cardiologia, psicologia, sala 308..." aria-label="Buscar clínica, especialidade ou sala"><button onclick="filterClinics()">Buscar clínicas</button></div></div></section>
+<main class="results"><div class="container"><p class="count" id="count">50 clínicas e serviços cadastrados</p><div class="grid" id="grid"></div><div class="empty" id="empty">Nenhuma clínica encontrada. Tente outro nome, especialidade ou número de sala.</div></div></main>
+<footer><div class="container"><span>© 2026 Albany Medical Center · CNPJ: 17.753.343/0001-20</span><span>Rua 5 Norte, Lote 3 — Águas Claras, Brasília – DF · CEP 71907-720</span></div></footer>
+<script>
+const clinics = [
+["Albany Lanchonete e Restaurante","Loja 07 · 1º andar","Serve refeições e lanches para pacientes, acompanhantes e visitantes.","restaurante lanchonete alimentação"],
+["Alessia Clínica","Sala 510","Atua com abordagens em TCC, psicanálise, avaliação neuropsicológica e avaliações psicológicas.","fisioterapia fisioterapia pélvica fonoaudiologia nutrição psicologia psicanálise neuropsicologia"],
+["Angiomaster – Angiologia e Cirurgia Vascular","Loja 02 · térreo","Clínica especializada em angiologia e cirurgia vascular.","angiologia cirurgia vascular"],
+["Átriocor Cardiologia","Salas 501, 502, 504 e 211","Centro médico voltado ao diagnóstico, prevenção e tratamento em cardiologia.","cardiologia cirurgia vascular endocrinologia ginecologia"],
+["Avancée Estética Avançada","Sala 205","Especializada em micropigmentação paramédica e estética facial e corporal.","estética"],
+["Bien Être","Sala 508","Atendimento em tratamentos estéticos e podologia, com horário agendado.","estética podologia"],
+["Cade – Centro Avançado Dor e Especialidades","Sala 410","Atendimento a pessoas que convivem com dor e serviços de especialidades.","acupuntura fisioterapia medicina da dor ortopedia"],
+["Cardio Master Clínica Especializada em Cardiologia","Loja 9 · térreo","Clínica especializada em cardiologia e cardiopediatria.","angiologia arritmologia cardiologia cirurgia geral neurologia nutrição ortopedia"],
+["CCPD","Salas 601 a 605 e 607","Centro de cirurgia plástica, dermatologia e estética.","cirurgia plástica dermatologia nutrologia"],
+["Cedet – Clínica de Dermatologia Estética e Saúde Integrada","Salas 503, 505, 506 e 507","Especializada em dermatologia e cirurgia plástica.","cirurgia plástica dermatologia estética"],
+["Centro Médico Casagrande","Loja 17 · térreo","Especializado em pediatria e imunização humana.","alergia endocrinologia ginecologia imunologia pediatria pneumologia"],
+["Centro Médico da Visão","Salas 310 e 312","Atendimento em oftalmologia, consultas, exames e laudos oftalmológicos.","oftalmologia"],
+["CITTI – Medicina Especializada","Loja 03 · térreo","Atende em treze especialidades médicas.","angiologia cirurgia geral cirurgia plástica dermatologia"],
+["Clínica Alívio dos Pés","Loja 7 · térreo","Clínica especializada em podologia.","podologia"],
+["Clínica BioDigest","Salas 104 a 107 e 201","Especializada em endoscopia digestiva alta, coloproctologia, gastroenterologia, gastro pediatria e hepatologia.","coloproctologia endoscopia digestiva gastroenterologia hepatologia"],
+["Clínica Dr. Gabriel Cabral","Salas 313 e 314","Atuação em fisiologia endócrino-metabólica, emagrecimento e áreas relacionadas.","endocrinologia estética ginecologia nutrição"],
+["Clínica Espaço Sorriso","Sala 406","Dentística, ortodontia, ortopedia facial, odontopediatria e implantodontia.","odontologia"],
+["Clínica Nosso Espaço","Salas 210, 212 e 214","Atendimento em psicologia, psiquiatria, psicopedagogia e fonoaudiologia.","fonoaudiologia psicologia psiquiatria"],
+["Clínica RN – Centro de Longevidade","Salas 401, 402, 404 e 306","Centro de longevidade com foco em qualidade de vida e bem-estar.","angiologia cirurgia plástica dermatologia estética"],
+["Clínica VitaPelve – Fisioterapia Pélvica","Sala 207","Clínica dedicada à fisioterapia pélvica.","fisioterapia pélvica"],
+["Clínica Vivace","Salas 108 a 111, 113 e 114","Clínica especializada em fisioterapia e medicina integrada.","acupuntura clínica médica endoscopia digestiva fisioterapia pediatria"],
+["COTTA – Centro de Otorrinolaringologia de Taguatinga Ltda","Salas 101 a 103","Centro especializado em otorrinolaringologia, com atuação há 25 anos.","fonoaudiologia otorrinolaringologia"],
+["Di Fiori Pediatria","Loja 11 · térreo","Acompanha a criança do pré-natal à adolescência.","alergia cirurgião dermatologia gastroenterologia pediatria"],
+["Due Reabilitações Orais","Sala 208","Clínica especializada em odontologia.","odontologia"],
+["Endostética – Clínica Médica","Sala 203","Atendimento em endocrinologia, dermatologia, ginecologia e nutrição.","dermatologia endocrinologia estética ginecologia nutrição"],
+["Enmovimento Fisioterapia – José Renato Bulhões","Sala 606","Especializada em fisioterapia na traumatologia e ortopedia.","fisioterapia"],
+["Espaço Neuropsicológico Lusiene Lima","Sala 311","Atendimento especializado em psicologia.","psicologia neuropsicologia"],
+["Espaço Saúde e Bem-Estar","Sala 202","Atendimento em psicologia, psicanálise e neuropsicologia.","estética neuropsicologia psicanálise psicologia"],
+["Espaço Viva Terapias Integradas","Sala 303","Reúne psicologia, psicanálise, hipnose e terapias integradas.","acupuntura hipnose psicanálise psicologia"],
+["Florence Dermatologia","Sala 308","Cuida de doenças da pele, das unhas e dos cabelos.","dermatologia estética"],
+["Gastrovie","Salas 509, 511, 513 e 514","Atendimento em gastroenterologia, hepatologia, manometria e áreas relacionadas.","cirurgião coloproctologia endoscopia digestiva gastroenterologia hepatologia manometria proctologia"],
+["Gileade Centro Neurológico","Salas 202, 204, 206 e 209","Atendimento em neurologia de adultos e crianças.","clínica geral fisiatria neurologia neuropediatria"],
+["Hipercure Medicina Hiperbárica","Loja 404","Clínica especializada em medicina hiperbárica.","medicina hiperbárica"],
+["ICOD – Instituto da Coluna, Ortopedia e Dor","Loja 06 · térreo","Atendimento em ortopedia, coluna e dor.","cirurgia plástica ortopedia otorrinolaringologia reumatologia"],
+["Kabusha Nutrição e Saúde","Loja 12 · térreo e Loja 06 · 1º andar","Serviços integrados de saúde, nutrição, fonoaudiologia e psicologia.","fonoaudiologia nutrição psicologia"],
+["Laboratório Exame","Loja 01 · térreo","Exames laboratoriais, anatomia patológica, análises clínicas, biópsia e citologia.","laboratório análises clínicas"],
+["Lanner Especialidades","Sala 411","Espaço dedicado ao bem-estar e qualidade de vida, com atendimento em especialidades.","acupuntura fisioterapia medicina da dor ortopedia"],
+["Luna Odontologia Especializada","Sala 413","Atendimento odontológico, incluindo cirurgias, endodontia e implantes.","odontologia"],
+["MS Odontologia","Loja 01 · 1º andar","Consultório odontológico com atendimento especializado para toda a família.","odontologia"],
+["Neo – Fisioterapia e Pilates","Loja 16 · térreo","Reúne fisioterapia, pilates e práticas de reabilitação.","acupuntura fisioterapia pilates rpg"],
+["OrtoMed – Produtos para saúde","Loja 22","Loja de produtos e equipamentos médicos.","ortopedia produtos para saúde"],
+["Ortopedia Águas Claras","Lojas 18 a 21 · térreo","Especializada em ortopedia e reumatologia.","ortopedia radiologia reumatologia"],
+["Patrícia Pizzo Clínica Odontológica","Sala 414","Especializada em ortodontia e implantodontia.","odontologia"],
+["Prisma Clínica de Psicologia e Neuropsicologia","Salas 302 e 305","Clínica especializada em psicologia e neuropsicologia.","neuropsicologia psicologia"],
+["RAC – Radiologia Águas Claras","Lojas 13, 14 e 15 · térreo","Tomografia, ressonância magnética, mamografia digital, densitometria óssea e ultrassonografia.","ecografia radiologia tomografia ultrassonografia ressonância mamografia"],
+["Revitalité Mulher","Sala 512","Clínica especializada em ginecologia.","fisioterapia pélvica ginecologia obstetrícia"],
+["SALUD Mulher","Sala 213","Atendimento em ginecologia e obstetrícia.","ginecologia obstetrícia"],
+["Sion Centro Médico","1º andar · Lojas 02 a 06","Consultas e exames em clínica médica, gastroenterologia, coloproctologia, ginecologia, nutrição e exames digestivos.","clínica médica coloproctologia ecografia endoscopia digestiva gastroenterologia ginecologia nutrição"],
+["ULTRALIFE","Sala 112","Especializada em ultrassonografia e ecografia.","ecografia ultrassonografia"],
+["Vita Care Brasília","Lojas 05 e 08 · Sala 301","Atende em quinze especialidades médicas.","acupuntura cardiologia clínica médica dermatologia"]
+];
+const grid=document.getElementById("grid"), count=document.getElementById("count"), empty=document.getElementById("empty"), input=document.getElementById("q");
+function render(list){grid.innerHTML="";list.forEach(c=>{const article=document.createElement("article");article.className="card";article.innerHTML='<div class="room">'+c[1]+'</div><h2></h2><p></p><a href="https://www.albanymedical.com.br/clinicas" target="_blank" rel="noopener">Consultar no site oficial →</a>';article.querySelector("h2").textContent=c[0];article.querySelector("p").textContent=c[2];grid.appendChild(article)});count.textContent=list.length+" de "+clinics.length+" clínicas e serviços";empty.style.display=list.length?"none":"block"}
+function filterClinics(){const q=input.value.trim().toLocaleLowerCase("pt-BR");render(clinics.filter(c=>c.join(" ").toLocaleLowerCase("pt-BR").includes(q)))}
+input.addEventListener("input",filterClinics);input.addEventListener("keydown",e=>{if(e.key==="Enter")filterClinics()});const params=new URLSearchParams(location.search);input.value=params.get("q")||"";render(clinics);if(input.value)filterClinics();
+</script>
+</body></html>
