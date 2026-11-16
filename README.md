@@ -1,29 +1,26 @@
 # Albany Medical Center
 
-Novo site institucional independente do Albany Medical Center.
+Site institucional independente do Albany Medical Center, com identidade visual branca e vermelha e layout responsivo.
 
-## Desenvolvimento
-Este primeiro incremento é um site estático responsivo, sem dependência de banco de dados:
-- página inicial institucional;
-- busca inicial por clínicas e especialidades;
-- listagem de 62 especialidades;
-- apresentação das clínicas destacadas;
-- informações da estrutura, estacionamento, salas e vagas;
-- FAQ e canais de contato;
-- layout responsivo para celular e desktop.
+## Páginas e recursos
+- Página inicial institucional (index.html) com busca, estatísticas, especialidades, clínicas em destaque, estrutura, salas/vagas, FAQ e contato.
+- Diretório pesquisável das 50 clínicas e serviços (clinicas.html), com busca por nome, especialidade e localização da sala.
+- Busca da página inicial conectada ao diretório de clínicas.
+- Logo e imagem principal recuperadas das referências visuais aprovadas para o projeto.
+- Arquivos de imagem armazenados como texto Base64 em assets/ e carregados no navegador; não dependem de banco de dados.
 
 ## Executar localmente
-Abra `index.html` no navegador. Para desenvolvimento, também pode usar qualquer servidor estático local.
+Abra o projeto em um servidor estático local. A página carrega os arquivos de marca e imagem a partir de /assets/, portanto recomenda-se usar um servidor local em vez de abrir diretamente pelo protocolo file://.
 
-## Publicação na Vercel
-Importe este repositório na Vercel e mantenha a raiz do projeto como `/`. Não há etapa de build: o site é servido como conteúdo estático. Depois, adicione `albany.hoottle.com.br` em Settings → Domains e configure o DNS indicado pela Vercel.
+## Publicação
+Projeto estático, sem etapa de build e sem dependência de Supabase. A raiz do projeto é /. O domínio pretendido é albany.hoottle.com.br; a implantação e a configuração DNS ainda precisam ser concluídas e verificadas na Vercel.
 
-## Dados e conteúdo
-O conteúdo institucional foi transcrito da versão pública do site Albany Medical Center e deve ser validado pela administração antes da publicação definitiva. Informações sobre convênios variam conforme a clínica. O Albany não realiza agendamentos em nome das clínicas.
+## Conteúdo e validação
+As informações institucionais e os dados das clínicas foram compilados a partir do site público do Albany Medical Center. Os dados de localização, especialidades e convênios devem ser revisados pela administração antes da publicação definitiva. A cobertura de convênios varia de clínica para clínica. O Albany não realiza agendamentos em nome das clínicas.
 
-## Próximos incrementos
-- revisar conteúdo de todas as páginas internas (clínicas, convênios, unidades/salas e contato);
-- substituir imagens ilustrativas por fotos oficiais autorizadas;
-- implementar busca completa com relação real de clínicas, especialidades e convênios;
-- validar links de mapas e redes sociais;
-- configurar domínio e publicação de produção.
+## Itens pendentes antes da publicação final
+- validar o conteúdo e os dados de todas as clínicas com a administração;
+- completar a relação de convênios e as associações reais entre convênios, clínicas e especialidades;
+- substituir eventuais imagens ilustrativas por fotos oficiais em alta resolução, se disponíveis;
+- concluir implantação e domínio próprio na Vercel;
+- testar os fluxos e a responsividade em dispositivos reais.
